@@ -3,6 +3,8 @@ angularify
 
 A web application scaffold based on AngularJS and some common libraries like Express and Browserify.
 
+You can see a live example at [angularify.erickruizdechavez.com](http://angularify.erickruizdechavez.com).
+
 How to use it
 -------------
 
@@ -32,7 +34,8 @@ To leave the project clean of all libraries and generated files (delete node_mod
 TODO
 ----
 
-- Host a live example of this scaffold.
+- ~~Host a live example of this scaffold.~~
 - Improve Gruntfile to avoid repeated paths.
 - Create a production version of the LESS files.
 - Add comments to JavaScript files.
+- Add configuration files (and allow overrides)
