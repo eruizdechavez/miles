@@ -1,0 +1,19 @@
+{
+  "name": "angularify",
+  "main": "index.js",
+  "version": "1.0.0",
+  "authors": [
+    "Erick Ruiz de Chavez <erick@erch.co>"
+  ],
+  "description": "A web application scaffold based on AngularJS and some common libraries like Express and Browserify.",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.3.0-beta.18",
+    "bootstrap": "~3.2.0",
+    "angular-bootstrap": "~0.11.0",
+    "angular-ui-router": "~0.2.10",
+    "alertify.js": "~0.3.11",
+    "restangular": "~1.4.0"
+  }
+}

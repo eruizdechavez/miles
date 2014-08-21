@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>Angularify</title>
+
+    <link href="//<%= host %><%= basePath %>/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav-bar></nav-bar>
+
+    <div class="container">
+      <ui-view></ui-view>
+    </div>
+
+
+    <script src="//<%= host %><%= basePath %>/js/dist/libs.js"></script>
+    <script src="//<%= host %><%= basePath %>/js/dist/index.js"></script>
+  </body>
+</html>

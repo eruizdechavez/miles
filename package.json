@@ -1,0 +1,50 @@
+{
+  "name": "angularify",
+  "description": "A web application scaffold based on AngularJS and some common libraries like Express and Browserify.",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Erick Ruiz de Chavez",
+    "email": "erick@erch.co",
+    "url": "http://erickruizdechavez.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erickrdch/angularify"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "domready": "^1.0.6",
+    "ejs": "~0.8.5",
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^4.2.3",
+    "browserify-shim": "^3.6.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^2.1.4",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.3.0",
+    "partialify": "^3.1.1"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "partialify"
+    ]
+  },
+  "browserify-shim": {
+    "angular": "global:angular",
+    "lodash": "global:_",
+    "alertify": "global:alertify"
+  }
+}
