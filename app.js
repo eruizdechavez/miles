@@ -5,7 +5,8 @@ var express = require('express'),
   favicon = require('static-favicon'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
-  app = express();
+  app = express(),
+  config = require('./modules/config');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,8 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   res.locals = {
-    host: 'localhost:3000',
-    basePath: ''
+    host: config.host,
+    basePath: config.basePath
   };
   next();
 });
