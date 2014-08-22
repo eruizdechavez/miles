@@ -2,7 +2,16 @@
 
 module.exports = function (grunt) {
   grunt.initConfig({
-    meta: {},
+    meta: {
+      bower: 'public/bower_components',
+      less: 'public/less',
+      css: 'public/css',
+      fonts: 'public/fonts',
+      jsSrc: 'public/js/src',
+      jsDist: 'public/js/dist',
+      img: 'public/img',
+      dist: 'dist'
+    },
     browserify: {
       index: {
         files: {
@@ -11,7 +20,8 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      dist: ['public/js/dist', 'public/css/', 'public/fonts/'],
+      build: ['<%= meta.jsDist %>', '<%= meta.css %>', '<%= meta.fonts %>'],
+      dist: ['<%= meta.clean.build %>', '<%= meta.dist %>'],
       all: ['<%= clean.dist %>', 'node_modules', 'bower_components']
     },
     concat: {
@@ -59,6 +69,11 @@ module.exports = function (grunt) {
         filter: 'isFile',
         src: ['public/bower_components/bootstrap/fonts/**'],
         dest: 'public/fonts/'
+      },
+      dist: {
+        expand: true,
+        src: ['app.js', 'index.js', '<%= meta.css %>/**/*', '<%= meta.fonts %>/**/*', '<%= meta.img %>/**/*', '<%= meta.jsDist %>/**/*', 'package.json', 'views/**/*'],
+        dest: '<%= meta.dist %>/'
       }
     },
     jshint: {
@@ -86,7 +101,7 @@ module.exports = function (grunt) {
       }
     },
     nodemon: {
-      dev: {
+      development: {
         script: 'index.js'
       }
     },
@@ -132,6 +147,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['concurrent:development']);
 
-  grunt.registerTask('development', ['clean:dist', 'concat:libs', 'browserify', 'less', 'copy:fonts']);
-  grunt.registerTask('dist', ['clean:dist', 'concat:libsMin', 'browserify', 'uglify', 'less', 'copy:fonts']);
+  grunt.registerTask('development', ['clean:build', 'concat:libs', 'browserify', 'less', 'copy:fonts']);
+  grunt.registerTask('build', ['clean:build', 'concat:libsMin', 'browserify', 'uglify', 'less', 'copy:fonts']);
+  grunt.registerTask('dist', ['build', 'copy:dist']);
 };
