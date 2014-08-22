@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     },
     clean: {
       build: ['<%= meta.jsDist %>', '<%= meta.css %>', '<%= meta.fonts %>'],
-      dist: ['<%= meta.clean.build %>', '<%= meta.dist %>'],
+      dist: ['<%= clean.build %>', '<%= meta.dist %>'],
       all: ['<%= clean.dist %>', 'node_modules', 'bower_components']
     },
     concat: {
