@@ -10,7 +10,9 @@ module.exports = function (grunt) {
       jsSrc: 'public/js/src',
       jsDist: 'public/js/dist',
       img: 'public/img',
-      dist: 'dist'
+      dist: 'dist',
+      config: 'config',
+      modules: 'modules'
     },
     browserify: {
       index: {
@@ -72,7 +74,7 @@ module.exports = function (grunt) {
       },
       dist: {
         expand: true,
-        src: ['app.js', 'index.js', '<%= meta.css %>/**/*', '<%= meta.fonts %>/**/*', '<%= meta.img %>/**/*', '<%= meta.jsDist %>/**/*', 'package.json', 'views/**/*'],
+        src: ['app.js', 'index.js', '<%= meta.config %>/**/*', '<%= meta.modules %>/**/*', '<%= meta.css %>/**/*', '<%= meta.fonts %>/**/*', '<%= meta.img %>/**/*', '<%= meta.jsDist %>/**/*', 'package.json', 'views/**/*'],
         dest: '<%= meta.dist %>/'
       }
     },
