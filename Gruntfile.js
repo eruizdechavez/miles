@@ -2,17 +2,24 @@
 
 module.exports = function (grunt) {
   grunt.initConfig({
-    meta: {},
+    meta: {
+      bower: 'public/bower_components',
+      less: 'public/less',
+      css: 'public/css',
+      fonts: 'public/fonts',
+      jsSrc: 'public/js/src',
+      jsDist: 'public/js/dist'
+    },
     browserify: {
       index: {
         files: {
-          'public/js/dist/index.js': 'public/js/src/index.js'
+          '<%= meta.jsDist %>/index.js': '<%= meta.jsSrc %>/index.js'
         }
       }
     },
     clean: {
-      dist: ['public/js/dist', 'public/css/', 'public/fonts/'],
-      all: ['<%= clean.dist %>', 'node_modules', 'bower_components']
+      dist: ['<%= meta.jsDist %>', '<%= meta.css %>', '<%= meta.fonts %>'],
+      all: ['<%= clean.dist %>', 'node_modules', '<%= meta.bower %>']
     },
     concat: {
       options: {
@@ -21,25 +28,25 @@ module.exports = function (grunt) {
       },
       libs: {
         files: {
-          'public/js/dist/libs.js': [
-            'public/bower_components/lodash/dist/lodash.js',
-            'public/bower_components/angular/angular.js',
-            'public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-            'public/bower_components/angular-ui-router/release/angular-ui-router.js',
-            'public/bower_components/restangular/dist/restangular.js',
-            'public/bower_components/alertify.js/lib/alertify.js'
+          '<%= meta.jsDist %>/libs.js': [
+            '<%= meta.bower %>/lodash/dist/lodash.js',
+            '<%= meta.bower %>/angular/angular.js',
+            '<%= meta.bower %>/angular-bootstrap/ui-bootstrap-tpls.js',
+            '<%= meta.bower %>/angular-ui-router/release/angular-ui-router.js',
+            '<%= meta.bower %>/restangular/dist/restangular.js',
+            '<%= meta.bower %>/alertify.js/lib/alertify.js'
           ]
         }
       },
       libsMin: {
         files: {
-          'public/js/dist/libs.js': [
-            'public/bower_components/lodash/dist/lodash.min.js',
-            'public/bower_components/angular/angular.min.js',
-            'public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-            'public/bower_components/angular-ui-router/release/angular-ui-router.min.js',
-            'public/bower_components/restangular/dist/restangular.min.js',
-            'public/bower_components/alertify.js/lib/alertify.min.js'
+          '<%= meta.jsDist %>/libs.js': [
+            '<%= meta.bower %>/lodash/dist/lodash.min.js',
+            '<%= meta.bower %>/angular/angular.min.js',
+            '<%= meta.bower %>/angular-bootstrap/ui-bootstrap-tpls.min.js',
+            '<%= meta.bower %>/angular-ui-router/release/angular-ui-router.min.js',
+            '<%= meta.bower %>/restangular/dist/restangular.min.js',
+            '<%= meta.bower %>/alertify.js/lib/alertify.min.js'
           ]
         }
       }
@@ -57,8 +64,8 @@ module.exports = function (grunt) {
         expand: true,
         flatten: true,
         filter: 'isFile',
-        src: ['public/bower_components/bootstrap/fonts/**'],
-        dest: 'public/fonts/'
+        src: ['<%= meta.bower %>/bootstrap/fonts/**'],
+        dest: '<%= meta.fonts %>/'
       }
     },
     jshint: {
@@ -69,19 +76,19 @@ module.exports = function (grunt) {
         src: 'Gruntfile.js'
       },
       browser: {
-        src: 'public/js/src/**/*.js'
+        src: '<%= meta.jsSrc %>/**/*.js'
       }
     },
     less: {
       styles: {
         options: {
           paths: [
-            'public/bower_components/',
-            'public/less'
+            '<%= meta.bower %>',
+            '<%= meta.less %>'
           ]
         },
         files: {
-          'public/css/styles.css': 'public/less/styles.less'
+          '<%= meta.css %>/styles.css': '<%= meta.less %>/styles.less'
         }
       }
     },
@@ -93,7 +100,7 @@ module.exports = function (grunt) {
     uglify: {
       index: {
         files: {
-          'public/js/dist/index.js': 'public/js/dist/index.js'
+          '<%= meta.jsDist %>/index.js': '<%= meta.jsDist %>/index.js'
         }
       }
     },
@@ -103,14 +110,14 @@ module.exports = function (grunt) {
         tasks: ['jshint:gruntfile']
       },
       less: {
-        files: ['public/less/**/*.less'],
+        files: ['<%= meta.less %>/**/*.less'],
         tasks: ['less:styles'],
         options: {
           livereload: true
         }
       },
       javascript: {
-        files: ['<%= jshint.browser.src %>', 'public/js/src/**/*.html'],
+        files: ['<%= jshint.browser.src %>', '<%= meta.jsSrc %>/**/*.html'],
         tasks: ['jshint:browser', 'browserify:index'],
         options: {
           livereload: true
