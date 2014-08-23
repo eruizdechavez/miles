@@ -1,3 +1,5 @@
+![david](https://david-dm.org/erickrdch/angularify.png)
+
 angularify
 ==========
 
