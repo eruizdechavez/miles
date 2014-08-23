@@ -1,4 +1,4 @@
-![david](https://david-dm.org/erickrdch/angularify.png)
+[![david][david-png]][david-link]
 
 angularify
 ==========
@@ -53,3 +53,6 @@ We manage the roadmap and list of `TODO`s using [GitHub issues][github-issues] a
 
 [ready-badge]: https://badge.waffle.io/erickrdch/angularify.svg?label=ready&title=Ready
 [in-progress-badge]: https://badge.waffle.io/erickrdch/angularify.svg?label=in%20progress&title=In%20Progress
+
+[david-png]: https://david-dm.org/erickrdch/angularify.png
+[david-link]: https://david-dm.org/erickrdch/angularify
