@@ -74,7 +74,7 @@ module.exports = function (grunt) {
       },
       dist: {
         expand: true,
-        src: ['app.js', 'index.js', '<%= meta.config %>/**/*', '<%= meta.modules %>/**/*', '<%= meta.css %>/**/*', '<%= meta.fonts %>/**/*', '<%= meta.img %>/**/*', '<%= meta.jsDist %>/**/*', 'package.json', 'views/**/*'],
+        src: ['app.js', 'cluster.js', 'index.js', '<%= meta.config %>/**/*', '<%= meta.modules %>/**/*', '<%= meta.css %>/**/*', '<%= meta.fonts %>/**/*', '<%= meta.img %>/**/*', '<%= meta.jsDist %>/**/*', 'package.json', 'views/**/*'],
         dest: '<%= meta.dist %>/'
       }
     },

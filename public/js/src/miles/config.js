@@ -13,10 +13,6 @@ module.exports = ['$stateProvider', '$urlRouterProvider',
       .state('about', {
         url: '/about',
         template: require('./about.html')
-      })
-      .state('contact', {
-        url: '/contact',
-        template: require('./contact.html')
       });
   }
 ];

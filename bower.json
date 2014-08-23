@@ -1,11 +1,11 @@
 {
-  "name": "angularify",
+  "name": "miles",
   "main": "index.js",
   "version": "1.0.0",
   "authors": [
     "Erick Ruiz de Chavez <erick@erch.co>"
   ],
-  "description": "A web application scaffold based on AngularJS and some common libraries like Express and Browserify.",
+  "description": "Show your project milestone progress in a badge.",
   "license": "MIT",
   "private": true,
   "dependencies": {

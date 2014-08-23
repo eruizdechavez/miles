@@ -1,6 +1,6 @@
 {
-  "name": "angularify",
-  "description": "A web application scaffold based on AngularJS and some common libraries like Express and Browserify.",
+  "name": "miles",
+  "description": "Show your project milestone progress in a badge.",
   "version": "1.0.0",
   "private": true,
   "author": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/erickrdch/angularify"
+    "url": "https://github.com/erickrdch/miles"
   },
   "dependencies": {
     "body-parser": "~1.0.0",

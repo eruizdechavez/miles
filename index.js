@@ -1,8 +1,40 @@
+// Original code at http://blog.evantahler.com/blog/production-deployment-with-node-js-clusters.html
+
 'use strict';
 
-var app = require('./app');
-app.set('port', process.env.PORT || 3000);
+var app = require('./app'),
+  cluster = require('cluster');
 
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
-});
+var startServer = function (next) {
+  if (cluster.isWorker) {
+    process.send('starting');
+  }
+
+  app.start(function () {
+    console.log('Boot Sucessful @ worker #' + process.pid);
+    next();
+  });
+};
+
+if (cluster.isWorker) {
+  process.on('message', function (msg) {
+    if (msg === 'start') {
+      process.send('starting');
+      startServer(function () {
+        process.send('started');
+      });
+    }
+
+    if (msg === 'stop') {
+      process.send('stopping');
+      app.stop(function () {
+        process.send('stopped');
+        process.exit();
+      });
+    }
+  });
+} else {
+  startServer(function () {
+    console.log('Successfully Booted!');
+  });
+}

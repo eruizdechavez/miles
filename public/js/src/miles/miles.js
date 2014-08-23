@@ -3,8 +3,10 @@
 var angular = require('angular');
 
 angular
-  .module('angularify', [])
+  .module('miles', ['restangular'])
   .config(require('./config'))
+  .factory('miles.MilesFactory', require('./miles-factory'))
+  .controller('miles.MilesController', require('./miles-controller'))
   .directive('navBar', function () {
     return {
       restrict: 'E',

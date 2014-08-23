@@ -1,0 +1,47 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Miles</h1>
+    <p>Display your GitHub milestones progress easily by embedding them as badges.</p>
+  </div>
+</div>
+
+<div ng-controller="miles.MilesController">
+  <div class="container">
+    <div class="row" ng-if="!milestones">
+      <form role="form">
+        <div class="form-group">
+          <label for="username">GitHub User/Organization</label>
+          <input type="text" class="form-control" id="username" placeholder="username" ng-model="username">
+        </div>
+        <div class="form-group">
+          <label for="repository">GitHub Repository</label>
+          <input type="text" class="form-control" id="repository" placeholder="repository" ng-model="repo">
+        </div>
+        <button class="btn btn-success" ng-disabled="!username || !repo || loading" ng-click="get(username, repo)">Get my badges!</button>
+      </form>
+    </div>
+
+    <div class="row" ng-if="milestones">
+      <h3>Milestones for {{ username }}/{{ repo }}</h3>
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Badge</th>
+            <th>Markdown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="milestone in milestones">
+            <td>{{ milestone.title }}</td>
+            <td><img ng-src="{{ milestone.url }}"></td>
+            <td><code>[![v1.1.0]({{ milestone.url }})](https://github.com/{{ username }}/{{ repo }}/milestones/{{ milestone.title }})</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" ng-click="reset()">Reset</button>
+    </div>
+  </div>
+</div>
+
