@@ -3,7 +3,7 @@ angularify
 
 A web application scaffold based on AngularJS and some common libraries like Express and Browserify.
 
-You can see a live example at [angularify.erickruizdechavez.com](http://angularify.erickruizdechavez.com).
+You can see a live example at [angularify.erickruizdechavez.com][demo].
 
 How to use it
 -------------
@@ -17,7 +17,7 @@ npm install
 bower install
 ```
 
-At this point, you are ready to start working on your local project. To run a local server, just run `grunt` and open your browser at [localhost](http://localhost:3000).
+At this point, you are ready to start working on your local project. To run a local server, just run `grunt` and open your browser at [localhost][localhost].
 
 The local project also has these goodies:
 
@@ -31,11 +31,23 @@ If you want to delete all generated files, just run `grunt clean:dist`.
 
 To leave the project clean of all libraries and generated files (delete node_modules, bower_components, css, fonts, etc.) just run `grunt clean`.
 
+
 TODO
 ----
+[![Stories in Ready][ready-badge]][waffle]
+[![Stories in In Progress][in-progress-badge]][waffle]
 
-- ~~Host a live example of this scaffold.~~
-- Improve Gruntfile to avoid repeated paths.
-- Create a production version of the LESS files.
-- Add comments to JavaScript files.
-- Add configuration files (and allow overrides)
+We manage the roadmap and list of `TODO`s using [GitHub issues][github-issues] and the awesome [Waffle.io][waffle.io]. You can see and comment our next [milestone][milestone] due on September 24, 2014 or the complete [list of issues][waffle].
+
+
+<!-- Links below this line please -->
+
+[demo]: http://angularify.erickruizdechavez.com
+[localhost]: http://localhost:3000
+[github-issues]: https://github.com/erickrdch/angularify/issues
+[waffle.io]: https://waffle.io
+[waffle]: https://waffle.io/erickrdch/angularify
+[milestone]: https://waffle.io/erickrdch/angularify?milestone=v1.1.0
+
+[ready-badge]: https://badge.waffle.io/erickrdch/angularify.svg?label=ready&title=Ready
+[in-progress-badge]: https://badge.waffle.io/erickrdch/angularify.svg?label=in%20progress&title=In%20Progress
