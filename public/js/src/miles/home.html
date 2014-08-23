@@ -36,7 +36,7 @@
           <tr ng-repeat="milestone in milestones">
             <td>{{ milestone.title }}</td>
             <td><img ng-src="{{ milestone.url }}"></td>
-            <td><code>[![v1.1.0]({{ milestone.url }})](https://github.com/{{ username }}/{{ repo }}/milestones/{{ milestone.title }})</code></td>
+            <td><code>[![v1.1.0]({{ host }}{{ milestone.url }})](https://github.com/{{ username }}/{{ repo }}/milestones/{{ milestone.title }})</code></td>
           </tr>
         </tbody>
       </table>

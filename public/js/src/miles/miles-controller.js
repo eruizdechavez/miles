@@ -2,8 +2,9 @@
 
 var alertify = require('alertify');
 
-module.exports = ['$scope', 'miles.MilesFactory',
-  function ($scope, MilesFactory) {
+module.exports = ['$scope', '$window', 'miles.MilesFactory',
+  function ($scope, $window, MilesFactory) {
+    $scope.host = $window.location.protocol + '//' + $window.location.host;
 
     $scope.get = function (username, repo) {
       $scope.loading = true;
